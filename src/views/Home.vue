@@ -5,7 +5,8 @@
       台灣新冠肺炎(COVID-19，武漢肺炎)疫情截至{{ updateDate }}已經有
       <strong> {{ totalCase }} </strong>例。
     </p>
-    <Chart :id="'chart'" :data="option" style="height: 350px;" />
+    <Chart :id="'chart1'" :data="option1" style="height: 350px;" />
+    <Chart :id="'chart2'" :data="option2" style="height: 350px;" />
   </div>
 </template>
 
@@ -19,7 +20,8 @@ export default {
     return {
       updateDate: '4月10日',
       json: json,
-      option: null
+      option1: null,
+      option2: null
     };
   },
   components: {
@@ -28,102 +30,99 @@ export default {
   computed: {
     totalCase() {
       return this.json.map(d => +d['確定病例數']).reduce((a, b) => a + b);
+    },
+    weeklyCases() {
+      return this.json.reduce((r, a) => {
+        const total =
+          typeof r[a['診斷週別']] === 'undefined'
+            ? +a['確定病例數']
+            : r[a['診斷週別']] + +a['確定病例數'];
+        r[a['診斷週別']] = total;
+        return r;
+      }, {});
+    },
+    sourceCases() {
+      return this.json.reduce((r, a) => {
+        const total =
+          typeof r[a['是否為境外移入']] === 'undefined'
+            ? +a['確定病例數']
+            : r[a['是否為境外移入']] + +a['確定病例數'];
+        r[a['是否為境外移入']] = total;
+        return r;
+      }, {});
+    },
+    sourceData() {
+      return Object.keys(this.sourceCases).map(key => {
+        return {
+          value: this.sourceCases[key],
+          name: key === '是' ? '境外移入' : '本土案例'
+        };
+      });
     }
   },
   mounted() {
-    this.option = {
+    this.option1 = {
       title: {
-        text: '',
+        text: '每週確診人數',
         left: 'center'
       },
       tooltip: {
         trigger: 'item',
-        formatter: '{a} <br/>{b} : {c}'
+        formatter: '{a} <br/>第{b}週 : {c}人'
       },
       legend: {
         left: 'center',
-        data: ['本年', '上年'],
+        data: ['確診人數'],
         bottom: 0
       },
       xAxis: {
         type: 'category',
-        name: 'x',
+        name: '週',
         splitLine: { show: false },
-        data: [
-          '一月',
-          '二月',
-          '三月',
-          '四月',
-          '五月',
-          '六月',
-          '七月',
-          '八月',
-          '九月',
-          '十月',
-          '十一月',
-          '十二月'
-        ]
-      },
-      grid: {
-        left: '1%',
-        right: '2%',
-        bottom: '8%',
-        containLabel: true
+        data: Object.keys(this.weeklyCases)
       },
       yAxis: {
-        type: 'category',
-        name: 'y',
-        splitLine: { show: true },
-        data: [
-          '10%',
-          '20%',
-          '30%',
-          '40%',
-          '50%',
-          '60%',
-          '70%',
-          '80%',
-          '90%',
-          '100%'
-        ]
+        type: 'value',
+        name: '人數'
       },
       series: [
         {
-          name: '本年',
+          name: '確診人數',
           type: 'line',
-          data: [
-            0.8,
-            0.98,
-            0.96,
-            0.27,
-            0.81,
-            0.47,
-            0.74,
-            0.23,
-            0.69,
-            0.25,
-            0.36,
-            0.56
-          ]
-        },
+          data: Object.values(this.weeklyCases)
+        }
+      ]
+    };
+
+    this.option2 = {
+      title: {
+        text: '案例來源',
+        left: 'center',
+        top: 30
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c}人 ({d}%)'
+      },
+      legend: {
+        left: 'center',
+        data: ['境外移入', '本土案例'],
+        bottom: 0
+      },
+      series: [
         {
-          name: '上年',
-          type: 'line',
-          data: [
-            1,
-            0.2,
-            0.4,
-            0.8,
-            0.16,
-            0.32,
-            0.64,
-            1.28,
-            5.6,
-            0.25,
-            0.63,
-            0.65,
-            0.12
-          ]
+          name: '來源',
+          type: 'pie',
+          radius: '50%',
+          center: ['50%', '50%'],
+          data: this.sourceData,
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
         }
       ]
     };

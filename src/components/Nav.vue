@@ -5,7 +5,7 @@
   </nav>
 </template>
 
-<style lang='scss'>
+<style scoped lang="scss">
 #nav {
   padding: 30px;
 
