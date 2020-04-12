@@ -18,7 +18,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      updateDate: '4月10日',
+      updateDate: '4月12日',
       json: json,
       option1: null,
       option2: null
