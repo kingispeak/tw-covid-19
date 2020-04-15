@@ -14,8 +14,14 @@
     "test:e2e": "testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\""
   },
   "dependencies": {
+    "animatewithsass": "^3.2",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "echarts": "^4.7.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.0",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
     "vue-router": "^3.1.6",
