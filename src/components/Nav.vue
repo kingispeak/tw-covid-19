@@ -1,21 +1,18 @@
 <template>
-  <nav id="nav" class="nav">
-    <router-link class="nav-item-home" to="/">Home</router-link>|
-    <router-link class="nav-item-about" to="/about">About</router-link>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <router-link class="navbar-brand" to="/">COVID-19</router-link>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <router-link class="nav-link" to="/">Home</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/about">About</router-link>
+      </li>
+    </ul>
+    <a href="https://github.com/kingispeak/tw-covid-19" target="_blank"
+      ><img src="@/assets/images/GitHub-Mark-Light-32px.png" alt="github"
+    /></a>
   </nav>
 </template>
 
-<style scoped lang="scss">
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>
