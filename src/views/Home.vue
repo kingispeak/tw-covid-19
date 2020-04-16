@@ -22,7 +22,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      updateDate: '4月12日',
+      updateDate: '4月15日',
       json: json,
       option1: null,
       option2: null,
@@ -39,10 +39,10 @@ export default {
     weeklyCases() {
       return this.json.reduce((r, a) => {
         const total =
-          typeof r[a['診斷週別']] === 'undefined'
+          typeof r[a['發病週別']] === 'undefined'
             ? +a['確定病例數']
-            : r[a['診斷週別']] + +a['確定病例數'];
-        r[a['診斷週別']] = total;
+            : r[a['發病週別']] + +a['確定病例數'];
+        r[a['發病週別']] = total;
         return r;
       }, {});
     },
