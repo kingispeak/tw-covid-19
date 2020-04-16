@@ -6,6 +6,7 @@ import echarts from 'echarts';
 import VueAnalytics from 'vue-analytics';
 import 'bootstrap';
 import axios from 'axios';
+import '@/assets/css/app.scss';
 
 Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;

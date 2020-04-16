@@ -9,10 +9,8 @@
         <router-link class="nav-link" to="/about">About</router-link>
       </li>
     </ul>
-    <a href="https://github.com/kingispeak/tw-covid-19" target="_blank"
-      ><img src="@/assets/images/GitHub-Mark-Light-32px.png" alt="github"
-    /></a>
+    <a href="https://github.com/kingispeak/tw-covid-19" target="_blank">
+      <img src="@/assets/images/GitHub-Mark-Light-32px.png" alt="github" />
+    </a>
   </nav>
 </template>
-
-<style scoped lang="scss"></style>
