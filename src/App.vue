@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Nav />
-    <main>
+    <main v-if="loaded">
       <router-view />
     </main>
     <Footer />
@@ -14,9 +14,18 @@ import Footer from '@/components/Footer.vue';
 
 export default {
   components: { Nav, Footer },
+  data() {
+    return {
+      loaded: false
+    };
+  },
+  created() {
+    this.$store
+      .dispatch('fetchReport')
+      .then(() => {
+        this.loaded = true;
+      })
+      .catch(() => {});
+  }
 };
 </script>
-
-<style lang="scss">
-@import './assets/styles/app';
-</style>
