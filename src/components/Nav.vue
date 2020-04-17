@@ -6,7 +6,7 @@
         <router-link class="nav-link" to="/">Home</router-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/about">About</router-link>
+        <router-link class="nav-link" to="/news">News</router-link>
       </li>
     </ul>
     <a href="https://github.com/kingispeak/tw-covid-19" target="_blank">
