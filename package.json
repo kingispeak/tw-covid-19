@@ -1,17 +1,16 @@
 {
   "name": "tw-covid-19",
   "version": "1.0.0",
-  "homepage": "https://kingispeak.github.io/tw-covid-19",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:dev": "vue-cli-service build --mode development",
+    "test:e2e": "testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\"",
     "lint": "vue-cli-service lint",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "sandbox": "http-server ./dist -p 3001",
-    "test:e2e": "testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\""
+    "build:dev": "vue-cli-service build --mode development",
+    "predeploy": "npm run build",
+    "sandbox": "http-server ./dist -p 3001"
   },
   "dependencies": {
     "animatewithsass": "^3.2",
@@ -38,9 +37,12 @@
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^2.2.0",
     "http-server": "^0.12.1",
+    "prerender-spa-plugin": "^3.2.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "testcafe": "^1.8.4",
+    "vue-cli-plugin-prerender-spa": "~1.1.6",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "homepage": "https://kingispeak.github.io/tw-covid-19"
 }

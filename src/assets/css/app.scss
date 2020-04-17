@@ -1,4 +1,9 @@
 @import 'vendors/vendor';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
+
+* {
+  font-family: 'Noto Sans TC';
+}
 
 html,
 body {
