@@ -28,6 +28,12 @@
 </template>
 
 <script>
+import storage from '@/utils/LocalStorageExpires';
+
+const STORAGE_KEY = 'NEWS';
+const API_KEY = '7ac26046239f41ce9280c78b24fdbd54';
+const NEWS_API_URL = `https://newsapi.org/v2/top-headlines?country=tw&q=疫情&apiKey=${API_KEY}`;
+
 export default {
   name: 'News',
   data() {
@@ -36,16 +42,19 @@ export default {
     };
   },
   created: function() {
-    this.$http
-      .get(
-        'https://newsapi.org/v2/top-headlines?apiKey=7ac26046239f41ce9280c78b24fdbd54&q=疫情&country=tw'
-      )
-      .then((response) => {
-        this.articles = response.data.articles;
-      })
-      .catch((error) => {
-        console.error('Error', error);
-      });
+    if (storage.get(STORAGE_KEY)) {
+      this.articles = storage.get(STORAGE_KEY);
+    } else {
+      this.$http
+        .get(NEWS_API_URL)
+        .then((response) => {
+          this.articles = response.data.articles;
+          storage.set(STORAGE_KEY, this.articles);
+        })
+        .catch((error) => {
+          console.error('Error', error);
+        });
+    }
   },
 };
 </script>
