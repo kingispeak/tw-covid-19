@@ -41,13 +41,13 @@ npm run serve
 ### Compiles for development
 
 ```
-npm run build:dev
+npm run build
 ```
 
 ### Compiles and minifies for production
 
 ```
-npm run build
+npm run build production
 ```
 
 ### Run your end-to-end tests
