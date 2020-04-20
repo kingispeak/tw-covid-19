@@ -17,9 +17,7 @@
           </h5>
           <p class="card-text">{{ article.description }}</p>
           <p class="card-text">
-            <small class="text-muted"
-              >{{ article.author }} - {{ article.publishedAt }}</small
-            >
+            <small class="text-muted">{{ article.author }} - {{ article.publishedAt }}</small>
           </p>
         </div>
       </div>
@@ -38,7 +36,7 @@ export default {
   name: 'News',
   data() {
     return {
-      articles: null,
+      articles: null
     };
   },
   created: function() {
@@ -47,15 +45,15 @@ export default {
     } else {
       this.$http
         .get(NEWS_API_URL)
-        .then((response) => {
+        .then(response => {
           this.articles = response.data.articles;
           storage.set(STORAGE_KEY, this.articles);
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('Error', error);
         });
     }
-  },
+  }
 };
 </script>
 
