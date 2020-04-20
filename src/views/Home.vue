@@ -3,17 +3,13 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-          <img
-            class="pr-2"
-            src="https://www.countryflags.io/TW/flat/48.png"
-            alt="Taiwan"
-          />
+          <img class="pr-2" src="https://www.countryflags.io/TW/flat/48.png" alt="Taiwan" />
           <h1 class="display-5">台灣新冠肺炎(COVID-19)疫情數據</h1>
         </div>
         <p class="lead text-center my-4">
           台灣新冠肺炎(COVID-19，武漢肺炎) 疫情截至
-          {{ newest.date }} 已經有 <strong>{{ newest.confirmed }}</strong
-          >例
+          {{ newest.date }} 已經有
+          <strong>{{ newest.confirmed }}</strong>例
         </p>
         <hr class="my-4" />
         <div class="row text-center">
@@ -76,14 +72,13 @@ export default {
   name: 'Home',
   data() {
     return {
-      updateDate: '4月15日',
       json: json,
       option1: null,
-      option2: null,
+      option2: null
     };
   },
   components: {
-    Chart,
+    Chart
   },
   computed: {
     newest() {
@@ -98,7 +93,7 @@ export default {
       return this.newest.confirmed - yesterday.confirmed;
     },
     totalCase() {
-      return this.json.map((d) => +d['確定病例數']).reduce((a, b) => a + b);
+      return this.json.map(d => +d['確定病例數']).reduce((a, b) => a + b);
     },
     weeklyCases() {
       return this.json.reduce((r, a) => {
@@ -121,62 +116,62 @@ export default {
       }, {});
     },
     sourceData() {
-      return Object.keys(this.sourceCases).map((key) => {
+      return Object.keys(this.sourceCases).map(key => {
         return {
           value: this.sourceCases[key],
-          name: key === '是' ? '境外移入' : '本土案例',
+          name: key === '是' ? '境外移入' : '本土案例'
         };
       });
-    },
+    }
   },
   mounted() {
     this.option1 = {
       title: {
         text: '每週確診人數',
-        left: 'center',
+        left: 'center'
       },
       tooltip: {
         trigger: 'item',
-        formatter: '{a} <br/>第{b}週 : {c}人',
+        formatter: '{a} <br/>第{b}週 : {c}人'
       },
       legend: {
         left: 'center',
         data: ['確診人數'],
-        bottom: 0,
+        bottom: 0
       },
       xAxis: {
         type: 'category',
         name: '週',
         splitLine: { show: false },
-        data: Object.keys(this.weeklyCases),
+        data: Object.keys(this.weeklyCases)
       },
       yAxis: {
         type: 'value',
-        name: '人數',
+        name: '人數'
       },
       series: [
         {
           name: '確診人數',
           type: 'line',
-          data: Object.values(this.weeklyCases),
-        },
-      ],
+          data: Object.values(this.weeklyCases)
+        }
+      ]
     };
 
     this.option2 = {
       title: {
         text: '案例來源',
         left: 'center',
-        top: 30,
+        top: 30
       },
       tooltip: {
         trigger: 'item',
-        formatter: '{b}: {c}人 ({d}%)',
+        formatter: '{b}: {c}人 ({d}%)'
       },
       legend: {
         left: 'center',
         data: ['境外移入', '本土案例'],
-        bottom: 0,
+        bottom: 0
       },
       series: [
         {
@@ -189,13 +184,13 @@ export default {
             itemStyle: {
               shadowBlur: 10,
               shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)',
-            },
-          },
-        },
-      ],
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 
