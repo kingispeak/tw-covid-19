@@ -4,13 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:e2e": "testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\"",
+    "build": "vue-cli-service build --mode",
+    "test:e2e": "npm run build && testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\"",
+    "test": "testcafe chrome ./tests/e2e/*.test.js --app \"http-server ./dist -p 3001 -s\"",
     "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist",
-    "build:dev": "vue-cli-service build --mode development",
-    "predeploy": "npm run build",
-    "sandbox": "http-server ./dist -p 3001"
+    "deploy": "npm run build production && gh-pages -d dist",
+    "sandbox": "http-server ./dist -p 3001 -s"
   },
   "dependencies": {
     "animatewithsass": "^3.2",

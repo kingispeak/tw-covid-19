@@ -11,11 +11,10 @@ install:
 
 script:
   - npm run lint
-  - npm run build:dev
   - npm run test:e2e
 
 after_success:
-  - npm run build
+  - npm run build production
 
 deploy:
   local_dir: ./dist
@@ -32,7 +31,6 @@ notifications:
     - kingispeak@gmail.com
   on_failure: always
 
-# Note: you should set Environment Variables here or 'Settings' on travis-ci.org
 env:
   global:
     - GH_REF: github.com/kingispeak//tw-covid-19.git
