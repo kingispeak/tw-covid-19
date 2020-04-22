@@ -1,7 +1,14 @@
-const isProd = process.env.NODE_ENV === 'production';
-
 module.exports = {
-  publicPath: isProd ? '/tw-covid-19/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/tw-covid-19/' : '/',
+  configureWebpack: {
+    // plugins: [new BundleAnalyzerPlugin()],
+    resolve: {
+      alias: {
+        moment: 'moment/src/moment',
+      },
+    },
+  },
+  chainWebpack: (config) => {},
   css: {
     loaderOptions: {
       scss: {
