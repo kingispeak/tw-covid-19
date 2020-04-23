@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import debounce from 'lodash/debounce';
+
 export default {
   name: 'Chart',
   props: ['id', 'data'],
@@ -15,9 +17,12 @@ export default {
     drwaChart(data) {
       this.chart = this.$echarts.init(document.getElementById(this.id));
       this.setOption(data);
-      window.addEventListener('resize', () => {
-        this.chart.resize();
-      });
+      window.addEventListener(
+        'resize',
+        debounce(() => {
+          this.chart.resize();
+        }, 1000)
+      );
     },
     setOption(data) {
       this.chart.setOption(data);

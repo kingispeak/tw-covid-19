@@ -4,10 +4,9 @@ import router from './router';
 import store from './store';
 import VueAnalytics from 'vue-analytics';
 import 'bootstrap';
+import jQuery from 'jquery';
 import axios from 'axios';
 import '@/assets/css/app.scss';
-import _ from 'lodash';
-
 // import echarts from 'echarts';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
@@ -15,12 +14,17 @@ import 'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/legend';
+import VueLazyload from 'vue-lazyload';
+import VueHead from 'vue-head';
 
 Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$http = axios;
-Vue.prototype._ = _;
 
+Vue.use(VueHead);
+Vue.use(VueLazyload);
+
+window.$ = window.jQuery = jQuery;
 window.axios = axios;
 
 // Configuration VueAnalytics
