@@ -3,13 +3,17 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-          <img class="pr-2" src="https://www.countryflags.io/TW/flat/48.png" alt="Taiwan" />
+          <img
+            class="pr-2"
+            src="https://www.countryflags.io/TW/flat/48.png"
+            alt="Taiwan"
+          />
           <h1 class="display-5">台灣新冠肺炎(COVID-19)疫情數據</h1>
         </div>
         <p class="lead text-center my-4">
           台灣新冠肺炎(COVID-19，武漢肺炎) 疫情截至
-          {{ newest.date }} 已經有
-          <strong>{{ newest.confirmed }}</strong>例
+          {{ newest.date }} 已經有 <strong>{{ newest.confirmed }}</strong>
+          例
         </p>
         <hr class="my-4" />
         <div class="row text-center">

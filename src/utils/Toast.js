@@ -6,14 +6,14 @@ export default {
     return iZtoast.error({
       title: title,
       message: message,
-      position: 'bottomLeft',
+      position: 'bottomLeft'
     });
   },
   success: (message, title = 'Success') => {
     return iZtoast.success({
       title: title,
       message: message,
-      position: 'bottomLeft',
+      position: 'bottomLeft'
     });
-  },
+  }
 };

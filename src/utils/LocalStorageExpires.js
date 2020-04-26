@@ -21,5 +21,5 @@ export default {
   },
   clean(key) {
     localStorage.removeItem(key);
-  },
+  }
 };
