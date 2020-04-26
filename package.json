@@ -9,7 +9,8 @@
     "test": "testcafe chrome ./tests/e2e/*.test.js --app \"http-server ./dist -p 3001 -s\"",
     "lint": "vue-cli-service lint",
     "deploy": "npm run build production && gh-pages -d dist",
-    "sandbox": "http-server ./dist -p 3001 -s"
+    "sandbox": "http-server ./dist -p 3001 -s",
+    "format": "prettier --write './src/**/*.{js,vue}'"
   },
   "dependencies": {
     "animatewithsass": "^3.2",
@@ -43,6 +44,7 @@
     "gh-pages": "^2.2.0",
     "http-server": "^0.12.1",
     "prerender-spa-plugin": "^3.2.1",
+    "prettier": "2.0.5",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "testcafe": "^1.8.4",

@@ -57,7 +57,7 @@ const axiosResponseHandler = {
         break;
     }
     return Promise.resolve(response);
-  },
+  }
 };
 
 window.axios.interceptors.request.use(config => config);

@@ -29,7 +29,9 @@
             </h5>
             <p class="card-text">{{ article.description }}</p>
             <p class="card-text">
-              <small class="text-muted">{{ article.author }} - {{ article.publishedAt }}</small>
+              <small class="text-muted">
+                {{ article.author }} - {{ article.publishedAt }}
+              </small>
             </p>
           </div>
         </div>

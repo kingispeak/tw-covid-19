@@ -28,12 +28,12 @@ window.$ = window.jQuery = jQuery;
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
   id: 'UA-61761333-4',
-  router,
+  router
 });
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-  mounted: () => document.dispatchEvent(new Event('x-app-rendered')),
+  render: h => h(App),
+  mounted: () => document.dispatchEvent(new Event('x-app-rendered'))
 }).$mount('#app');
