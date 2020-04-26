@@ -3,10 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import VueAnalytics from 'vue-analytics';
-import 'bootstrap';
 import jQuery from 'jquery';
-import axios from 'axios';
-import '@/assets/css/app.scss';
+import 'bootstrap';
+import './utils/Axios';
+import './assets/css/app.scss';
 // import echarts from 'echarts';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
@@ -19,13 +19,11 @@ import VueHead from 'vue-head';
 
 Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;
-Vue.prototype.$http = axios;
 
 Vue.use(VueHead);
 Vue.use(VueLazyload);
 
 window.$ = window.jQuery = jQuery;
-window.axios = axios;
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
