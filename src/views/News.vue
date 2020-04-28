@@ -60,7 +60,7 @@ export default {
       articles: null
     };
   },
-  created: function() {
+  created() {
     if (storage.get(STORAGE_KEY)) {
       this.articles = storage.get(STORAGE_KEY);
     } else {

@@ -1,19 +1,26 @@
 import iZtoast from 'izitoast';
 import 'izitoast/dist/css/iziToast.css';
 
-export default {
-  error: (message, title = 'Error') => {
-    return iZtoast.error({
-      title: title,
-      message: message,
-      position: 'bottomLeft'
-    });
-  },
-  success: (message, title = 'Success') => {
-    return iZtoast.success({
+class Toast {
+  constructor() {
+    this.toast = iZtoast;
+  }
+
+  error(message, title = 'Error') {
+    return this.toast.error({
       title: title,
       message: message,
       position: 'bottomLeft'
     });
   }
-};
+
+  success(message, title = 'Success') {
+    return this.toast.success({
+      title: title,
+      message: message,
+      position: 'bottomLeft'
+    });
+  }
+}
+
+export default new Toast();
