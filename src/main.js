@@ -7,18 +7,10 @@ import jQuery from 'jquery';
 import 'bootstrap';
 import './utils/Axios';
 import './assets/css/app.scss';
-// import echarts from 'echarts';
-import echarts from 'echarts/lib/echarts';
-import 'echarts/lib/chart/line';
-import 'echarts/lib/chart/pie';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/component/title';
-import 'echarts/lib/component/legend';
 import VueLazyload from 'vue-lazyload';
 import VueHead from 'vue-head';
 
 Vue.config.productionTip = false;
-Vue.prototype.$echarts = echarts;
 
 Vue.use(VueHead);
 Vue.use(VueLazyload);
