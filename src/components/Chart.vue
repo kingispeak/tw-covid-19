@@ -3,6 +3,13 @@
 </template>
 
 <script>
+// import echarts from 'echarts';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/pie';
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/title';
+import 'echarts/lib/component/legend';
 import debounce from 'lodash/debounce';
 
 export default {
@@ -15,7 +22,7 @@ export default {
   },
   methods: {
     drwaChart(data) {
-      this.chart = this.$echarts.init(document.getElementById(this.id));
+      this.chart = echarts.init(document.getElementById(this.id));
       this.setOption(data);
       window.addEventListener(
         'resize',
