@@ -82,7 +82,7 @@ export default {
           console.error('Error', error);
         });
     },
-    refresh: debounce(function() {
+    refresh: debounce(function () {
       this.fetchNews();
     }, 3000)
   }
