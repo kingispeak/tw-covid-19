@@ -17,7 +17,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
-    "echarts": "^4.8.0",
+    "echarts": "^4.9.0",
     "font-awesome": "^4.7.0",
     "izitoast": "^1.4.0",
     "jquery": "^3.5.1",
@@ -47,7 +47,7 @@
     "prettier": "2.0.5",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
-    "testcafe": "^1.9.1",
+    "testcafe": "^1.9.2",
     "vue-cli-plugin-prerender-spa": "~1.1.6",
     "vue-template-compiler": "^2.6.12"
   },
