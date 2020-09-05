@@ -9,8 +9,10 @@ import './utils/Axios';
 import './assets/css/app.scss';
 import VueLazyload from 'vue-lazyload';
 import VueHead from 'vue-head';
+import { CONFIG as SiteConfig } from './config';
 
 Vue.config.productionTip = false;
+Vue.prototype.$conf = SiteConfig;
 
 Vue.use(VueHead);
 Vue.use(VueLazyload);
@@ -19,7 +21,7 @@ window.$ = window.jQuery = jQuery;
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
-  id: 'UA-61761333-4',
+  id: SiteConfig.Analytics_ID,
   router
 });
 

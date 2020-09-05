@@ -3,9 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          © 2020 -
-          <a href="https://github.com/kingispeak/tw-covid-19" target="_blank">
-            Sin-Fong Lyu
+          &copy; 2020 -
+          <a :href="$conf.URL" target="_blank">
+            Fong
           </a>
         </div>
         <div class="col-md-6">
