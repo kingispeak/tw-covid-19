@@ -29,9 +29,8 @@ https://kingispeak.github.io/tw-covid-19/
 ## Todo
 
 1. RSS Feed
-2. Browser Notification
-3. Skeleton Screen Loading
-4. Social Share Dialog
+2. Skeleton Screen Loading
+3. Social Share Dialog
 
 ## Project setup
 

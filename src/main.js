@@ -8,6 +8,7 @@ import 'bootstrap';
 import './utils/Axios';
 import './assets/css/app.scss';
 import VueLazyload from 'vue-lazyload';
+import VueNativeNotification from 'vue-native-notification';
 import VueHead from 'vue-head';
 import { CONFIG as SiteConfig } from './config';
 
@@ -23,6 +24,12 @@ window.$ = window.jQuery = jQuery;
 Vue.use(VueAnalytics, {
   id: SiteConfig.Analytics_ID,
   router
+});
+
+Vue.use(VueNativeNotification, {
+  // Automatic permission request before
+  // showing notification (default: true)
+  requestOnNotify: true
 });
 
 new Vue({

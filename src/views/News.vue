@@ -47,8 +47,15 @@ import storage from '@/utils/LocalStorageExpires';
 
 const STORAGE_KEY = 'NEWS';
 const API_KEY = '7ac26046239f41ce9280c78b24fdbd54';
-const keyword = '疫情';
-const NEWS_API_URL = `https://newsapi.org/v2/top-headlines?country=tw&q=${keyword}&apiKey=${API_KEY}`;
+const KEYWORD = '疫情';
+const NEWS_API_URL = `https://newsapi.org/v2/top-headlines?country=tw&q=${KEYWORD}&apiKey=${API_KEY}`;
+let notification = {
+  title: 'COVID-19',
+  options: {
+    body: '新聞已更新'
+  },
+  events: {}
+};
 
 export default {
   name: 'News',
@@ -77,6 +84,11 @@ export default {
         .then(response => {
           this.articles = response.data.articles;
           storage.set(STORAGE_KEY, this.articles);
+          this.$notification.show(
+            notification.title,
+            notification.options,
+            notification.events
+          );
         })
         .catch(error => {
           console.error('Error', error);
