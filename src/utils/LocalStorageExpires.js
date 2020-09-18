@@ -1,8 +1,8 @@
-import moment from 'moment';
+import * as dayjs from 'dayjs';
 
 export default {
   set(key, data) {
-    const expiryObj = { expiry: moment().add(1, 'days') };
+    const expiryObj = { expiry: dayjs().add(1, 'day').format() };
     const obj = Array.isArray(data)
       ? { value: data, ...expiryObj }
       : { ...data, ...expiryObj };
@@ -14,7 +14,7 @@ export default {
     if (!data) {
       return false;
     }
-    if (data.expiry && moment(data.expiry).isAfter(moment())) {
+    if (data.expiry && dayjs(data.expiry).isAfter(dayjs())) {
       return data.value;
     }
     return false;

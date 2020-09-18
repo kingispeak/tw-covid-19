@@ -9,22 +9,20 @@ module.exports = {
         $: 'jquery',
         jQuery: 'jquery',
         jquery: 'jquery',
-        'windows.jQuery': 'jquery',
-      }),
+        'windows.jQuery': 'jquery'
+      })
     ],
     resolve: {
-      alias: {
-        moment: 'moment/src/moment',
-      },
-    },
+      alias: {}
+    }
   },
-  chainWebpack: (config) => {},
+  chainWebpack: config => {},
   css: {
     loaderOptions: {
       scss: {
-        prependData: `@import "@/assets/css/vendors/_animated.scss";`,
-      },
-    },
+        prependData: `@import "@/assets/css/vendors/_animated.scss";`
+      }
+    }
   },
   pluginOptions: {
     prerenderSpa: {
@@ -32,7 +30,7 @@ module.exports = {
       renderRoutes: ['/', '/news'],
       useRenderEvent: true,
       headless: true,
-      onlyProduction: true,
-    },
-  },
+      onlyProduction: true
+    }
+  }
 };
