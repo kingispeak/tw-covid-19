@@ -31,6 +31,21 @@ module.exports = {
       useRenderEvent: true,
       headless: true,
       onlyProduction: true
+    },
+    sitemap: {
+      urls: [
+        {
+          loc: 'https://kingispeak.github.io/tw-covid-19/index.html',
+          priority: 1.0,
+          changefreq: 'daily'
+        },
+        {
+          loc: 'https://kingispeak.github.io/tw-covid-19/news.html',
+          priority: 0.8,
+          changefreq: 'daily'
+        }
+      ],
+      outputDir: './dist'
     }
   }
 };
