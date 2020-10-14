@@ -4,7 +4,6 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/tw-covid-19/' : '/',
   configureWebpack: {
     plugins: [
-      // new BundleAnalyzerPlugin(),
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
@@ -16,7 +15,6 @@ module.exports = {
       alias: {}
     }
   },
-  chainWebpack: config => {},
   css: {
     loaderOptions: {
       scss: {
@@ -25,13 +23,6 @@ module.exports = {
     }
   },
   pluginOptions: {
-    prerenderSpa: {
-      registry: undefined,
-      renderRoutes: ['/', '/news'],
-      useRenderEvent: true,
-      headless: true,
-      onlyProduction: true
-    },
     sitemap: {
       urls: [
         {

@@ -2,7 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import VueAnalytics from 'vue-analytics';
 import jQuery from 'jquery';
 import 'bootstrap';
 import './utils/Axios';
@@ -19,12 +18,6 @@ Vue.use(VueHead);
 Vue.use(VueLazyload);
 
 window.$ = window.jQuery = jQuery;
-
-// Configuration VueAnalytics
-Vue.use(VueAnalytics, {
-  id: SiteConfig.Analytics_ID,
-  router
-});
 
 Vue.use(VueNativeNotification, {
   // Automatic permission request before
