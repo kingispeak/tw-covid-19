@@ -4,14 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --mode",
-    "test:e2e": "npm run build && testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots --app \"http-server ./dist -p 3001 -s\"",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build production && gh-pages -d dist",
     "format": "prettier --write './src/**/*.{js,vue}'",
-    "sandbox": "http-server ./dist -p 3001 -s",
-    "sitemap": "vue-cli-service sitemap",
-    "test": "npm run build && testcafe chrome ./tests/e2e/*.test.js --app \"http-server ./dist -p 3001 -s\""
+    "test": "start-server-and-test serve 8080 'testcafe chrome ./tests/e2e/*.test.js'",
+    "test:headless": "start-server-and-test serve 8080 'testcafe \"chrome:headless\" ./tests/e2e/*.test.js -S -s ./tests/e2e/screenshots'",
+    "deploy:gh": "npm run build production && gh-pages -d dist"
   },
   "dependencies": {
     "animatewithsass": "^3.2",
@@ -43,10 +41,10 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^2.2.0",
-    "http-server": "^0.12.3",
     "prettier": "2.0.5",
     "sass": "^1.27.0",
     "sass-loader": "^8.0.2",
+    "start-server-and-test": "^1.11.5",
     "testcafe": "^1.9.4",
     "vue-cli-plugin-sitemap": "~2.3.0",
     "vue-template-compiler": "^2.6.12"

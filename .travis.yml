@@ -11,10 +11,10 @@ install:
 
 script:
   - npm run lint
-  - npm run test:e2e
+  - npm run test:headless
 
 after_success:
-  - npm run build production
+  - npm run build
 
 deploy:
   local_dir: ./dist
