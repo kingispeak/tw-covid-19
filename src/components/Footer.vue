@@ -10,9 +10,9 @@
         </div>
         <div class="col-md-6">
           <ul class="list-inline">
-            <li class="list-inline-item">資料來源 :</li>
+            <li class="list-inline-item">資料來源：</li>
             <li class="list-inline-item">
-              <a href="https://data.gov.tw/dataset/118038" class="text-primary">
+              <a href="https://data.gov.tw/dataset/118038" target="_blank">
                 疾管署
               </a>
             </li>
