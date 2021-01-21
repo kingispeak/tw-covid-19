@@ -24,7 +24,9 @@
 
 ## Live Demo
 
-https://kingispeak.github.io/tw-covid-19/
+1. https://gracious-davinci-4e012c.netlify.app/
+
+2. https://kingispeak.github.io/tw-covid-19/
 
 ## Todo
 
