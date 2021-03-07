@@ -28,12 +28,6 @@
 
 2. https://kingispeak.github.io/tw-covid-19/
 
-## Todo
-
-1. RSS Feed
-2. Skeleton Screen Loading
-3. Social Share Dialog
-
 ## Project setup
 
 ```
@@ -58,7 +52,7 @@ npm run build
 npm run build production
 ```
 
-### Run your end-to-end tests
+### Run E2E Tests
 
 ```
 npm run test:e2e
@@ -70,6 +64,13 @@ npm run test:e2e
 npm run lint
 ```
 
-### Customize configuration
+## Docker
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Build docker image and start a container with the following command.
+
+```
+docker build -t tw-covid-19:1.0 .
+docker run -d --name vue-app -p 8080:80 tw-covid-19:1.0
+```
+
+Navigate to http://localhost:8080, and you should now see website.
