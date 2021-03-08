@@ -9,9 +9,7 @@
   </a>
 </p>
 <h1 align="center">台灣新冠肺炎(COVID-19)疫情數據</h1>
-台灣新冠肺炎(COVID-19，武漢肺炎)疫情數據視覺化呈現。
-
-資料來源：
+台灣新冠肺炎(COVID-19)疫情數據視覺化呈現，資料來源：
 
 1. <a href="https://data.gov.tw/dataset/118038" target="_blank">
    衛生福利部疾病管制署
