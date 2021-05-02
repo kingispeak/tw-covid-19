@@ -3,6 +3,7 @@
 FROM node:12.16-alpine AS builder
 WORKDIR /app
 COPY . .
+RUN sh fetchData.sh
 RUN yarn install && yarn build
 
 FROM nginx:alpine

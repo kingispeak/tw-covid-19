@@ -13,7 +13,3 @@ elif [ -x "$(which curl)" ]; then
 else
     echo "Could not find curl or wget, please install one." >&2
 fi
-
-git add $path
-git commit -m 'docs: auto update covid-19 open data'
-git push
